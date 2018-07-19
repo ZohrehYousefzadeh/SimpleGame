@@ -9,7 +9,7 @@ using namespace Game::Utility;
 
 int main()
 {
-	GameManager game_;
-	game_.run();
+	GameManager game;
+	game.run();
 	return 0;
 }
