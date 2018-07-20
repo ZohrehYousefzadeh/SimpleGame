@@ -11,18 +11,31 @@ namespace Game
 {
 	void GameManager::run()
 	{
-		int i = im_.get_input();
+		bool b = false;
+		
 		int j = r_.generator(10,200);
-		cout << "Your Number: " << i << endl << "Random Number: " << j << endl;
-		switch(compare(i,j))
+		
+		while(!b)
 		{
-			case 0:
-				cout << "You Won!\n";
-				break;
-			default:
-				cout << "You Lost...\n";
-				break;
+			int i = im_.get_input();
+			switch(compare(i,j))
+			{
+				case 0:
+					cout << "You Won!\n";
+					b = true;
+					break;
+				case 1:
+					cout << "Your Number is Smaller than the Random Number!\nTry again...\n";
+					break;
+				case 2:
+					cout << "Your Number is Greater than the Random Number!\nTry again...\n";
+					break;
+				default:
+					break;
+			}
+			//cout << "Your Number: " << i << endl << "Random Number: " << j << endl;
 		}
+		
 	}
 
         CompareResult GameManager::compare(int input,int rnum)
